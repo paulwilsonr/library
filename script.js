@@ -1,12 +1,15 @@
 let myLibrary = [];
 let formOpen = false;
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = Boolean(read)
-    this.info = function () {
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    info() {
         let isItRead = '';
         if (this.read) {
             isItRead = 'Read';
@@ -16,6 +19,9 @@ function Book(title, author, pages, read) {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${isItRead}`;
     }
 };
+
+
+
 
 function addBookToLibrary() {
     let title = document.querySelector('#bookName').value;
@@ -83,7 +89,7 @@ function showForm() {
 };
 
 
-
 document.getElementById('newBookButton').addEventListener('click', showForm);
 document.getElementById('submitButton').addEventListener('click', addBookToLibrary);
+
 
